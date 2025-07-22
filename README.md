@@ -13,8 +13,6 @@ A full-stack web application for managing student attendance with a Java servlet
 - **Course Management**: Manage course information and instructors
 - **Attendance Tracking**: Record and monitor student attendance per course
 - **RESTful API**: Clean REST endpoints for all operations
-- **Modern UI**: Responsive React frontend with Tailwind CSS
-- **Real-time Updates**: Live data synchronization between frontend and backend
 
 ## 🏗️ Architecture
 
@@ -34,18 +32,6 @@ src/
 │       └── DataStore.java         # In-memory data storage
 ```
 
-### Frontend Structure
-```
-src/
-├── App.jsx                    # Main app component
-├── AttendanceApp.jsx         # Main application with tabs
-├── StudentContainer.jsx      # Student management UI
-├── CourseContainer.jsx       # Course management UI
-├── AttendanceContainer.jsx   # Attendance management UI
-├── index.js                  # React entry point
-└── main.jsx                  # Vite entry point
-```
-
 ## 📋 Prerequisites
 
 - **Java 8+**
@@ -54,54 +40,6 @@ src/
 - **npm or yarn**
 
 ## ⚙️ Installation & Setup
-
-### Backend Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd student-attendance-system
-   ```
-
-2. **Configure Tomcat Path**
-   ```bash
-   # Edit compile.bat and update the TOMCAT_PATH
-   set TOMCAT_PATH=C:\Your\Path\To\Tomcat\apache-tomcat-9.0.106
-   ```
-
-3. **Compile Java Files**
-   ```bash
-   # Windows
-   compile.bat
-   
-   # Manual compilation
-   javac -cp "%TOMCAT_PATH%\lib\servlet-api.jar" -d WEB-INF\classes src\com\AttendanceManagementSystem\model\*.java
-   javac -cp "%TOMCAT_PATH%\lib\servlet-api.jar;WEB-INF\classes" -d WEB-INF\classes src\com\AttendanceManagementSystem\storage\*.java
-   javac -cp "%TOMCAT_PATH%\lib\servlet-api.jar;WEB-INF\classes" -d WEB-INF\classes src\com\AttendanceManagementSystem\servlet\*.java
-   ```
-
-4. **Deploy to Tomcat**
-   - Copy the entire project folder to `%TOMCAT_PATH%\webapps\attendance-system\`
-   - Start Tomcat server
-   - Backend will be available at: `http://localhost:8080/attendance-system`
-
-### Frontend Setup
-
-1. **Install Dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-2. **Start Development Server**
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
-
-3. **Frontend will be available at**: `http://localhost:3000`
 
 ## 🔌 API Endpoints
 
@@ -115,26 +53,6 @@ src/
 | `PUT` | `/students/{id}` | Update student | **Update Student Button** (after Edit) |
 | `DELETE` | `/students/{id}` | Delete student | **Delete Button** (trash icon) |
 
-#### Request/Response Examples
-
-**Create Student (POST /students/)**
-```json
-// Request Body
-{
-  "fullName": "John Doe",
-  "email": "john.doe@email.com",
-  "registeredCourses": []
-}
-
-// Response
-{
-  "id": 1,
-  "fullName": "John Doe",
-  "email": "john.doe@email.com",
-  "registeredCourses": []
-}
-```
-
 ### 📚 Course Endpoints
 
 | Method | Endpoint | Description | Frontend Trigger |
@@ -144,24 +62,6 @@ src/
 | `GET` | `/courses/{id}` | Get course by ID | *Not directly used in UI* |
 | `PUT` | `/courses/{id}` | Update course | **Update Course Button** (after Edit) |
 | `DELETE` | `/courses/{id}` | Delete course | **Delete Button** (trash icon) |
-
-#### Request/Response Examples
-
-**Create Course (POST /courses/)**
-```json
-// Request Body
-{
-  "name": "Java Programming",
-  "instructor": "Dr. Smith"
-}
-
-// Response
-{
-  "id": 1,
-  "name": "Java Programming",
-  "instructor": "Dr. Smith"
-}
-```
 
 ### 📅 Attendance Endpoints
 
@@ -175,28 +75,6 @@ src/
 | `GET` | `/attendance/{id}` | Get attendance by ID | *Not directly used in UI* |
 | `PUT` | `/attendance/{id}` | Update attendance | **Update Attendance Button** (after Edit) |
 | `DELETE` | `/attendance/{id}` | Delete attendance | **Delete Button** (trash icon) |
-
-#### Request/Response Examples
-
-**Record Attendance (POST /attendance/)**
-```json
-// Request Body
-{
-  "studentId": 1,
-  "courseId": 1,
-  "date": "2024-01-15",
-  "present": true
-}
-
-// Response
-{
-  "id": 1,
-  "studentId": 1,
-  "courseId": 1,
-  "date": "2024-01-15",
-  "present": true
-}
-```
 
 ## 🎨 Frontend UI Guide
 
@@ -239,26 +117,6 @@ src/
 ### Environment Variables
 - `API_BASE`: Set to your backend URL (default: `http://localhost:8080/attendance-system`)
 
-### CORS Configuration
-The backend currently doesn't include CORS headers. For production, add CORS filter to your servlets or use a reverse proxy.
-
-## 🗃️ Sample Data
-
-The system initializes with sample data:
-
-**Students:**
-- Mitsos Karatasou (mitsos.kara@gmail.com)
-- Maria Eleutheriou (maria.ele@email.com)  
-- Arnold Schwarz (arnie.sch@email.com)
-
-**Courses:**
-- Java Programming (Dr. John)
-- Data Structures (Prof. Davis)
-- Web Development (Sir Mathews)
-
-**Attendance Records:**
-- Sample records linking students to courses
-
 ## 🚨 Error Handling
 
 The API returns appropriate HTTP status codes:
@@ -274,27 +132,3 @@ Error responses include descriptive messages:
   "error": "Student not found with ID: 999"
 }
 ```
-
-## 🔮 Future Enhancements
-
-- [ ] Add proper JSON library (Jackson/Gson)
-- [ ] Implement CORS support
-- [ ] Add authentication and authorization
-- [ ] Database persistence (replace in-memory storage)
-- [ ] Input validation and sanitization
-- [ ] Logging framework integration
-- [ ] Unit and integration tests
-- [ ] Docker containerization
-- [ ] Attendance reporting and analytics
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
-
-**Built with ❤️ for educational purposes**

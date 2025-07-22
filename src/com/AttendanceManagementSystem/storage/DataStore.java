@@ -13,8 +13,7 @@ import java.util.stream.Collectors;
 
 /**
  * In-memory data store for the Student Attendance Management System.
- * Provides thread-safe CRUD operations for Students, Courses, and
- * AttendanceRecords.
+ * Provides thread-safe CRUD operations.
  */
 public class DataStore {
     // Single instance across the application
@@ -57,8 +56,6 @@ public class DataStore {
         }
         return instance;
     }
-
-    // ==================== STUDENT OPERATIONS ====================
 
     /**
      * Get all students
@@ -116,8 +113,6 @@ public class DataStore {
         return students.remove(id) != null;
     }
 
-    // ==================== COURSE OPERATIONS ====================
-
     /**
      * Get all courses
      * 
@@ -173,8 +168,6 @@ public class DataStore {
     public boolean deleteCourse(int id) {
         return courses.remove(id) != null;
     }
-
-    // ==================== ATTENDANCE OPERATIONS ====================
 
     /**
      * Get all attendance records
@@ -245,9 +238,7 @@ public class DataStore {
     public boolean deleteAttendanceRecord(int id) {
         return attendanceRecords.remove(id) != null;
     }
-
-    // ==================== UTILITY METHODS ====================
-
+    
     /**
      * Check if student exists
      * 

@@ -16,8 +16,7 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 
 /**
- * AttendanceServlet - Real HttpServlet for Tomcat deployment
- * Handles all REST API endpoints for AttendanceRecord operations.
+ * AttendanceServlet - Handles all REST API endpoints for AttendanceRecord operations
  * 
  * Supported endpoints:
  * GET    /attendance                               - List all attendance records
@@ -165,7 +164,6 @@ public class AttendanceServlet extends HttpServlet {
     }
 
     /**
-     * Handle PUT requests
      * PUT /attendance/{id} - Update attendance record
      */
     @Override
@@ -290,7 +288,6 @@ public class AttendanceServlet extends HttpServlet {
     }
 
     /**
-     * Handle DELETE requests
      * DELETE /attendance/{id} - Delete attendance record
      */
     @Override
@@ -350,8 +347,6 @@ public class AttendanceServlet extends HttpServlet {
             out.flush();
         }
     }
-
-    // ==================== HELPER METHODS ====================
 
     /**
      * Get all attendance records with optional filtering
@@ -455,8 +450,6 @@ public class AttendanceServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
-    // ==================== MANUAL JSON PROCESSING ====================
 
     /**
      * Convert AttendanceRecord object to JSON string

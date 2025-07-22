@@ -13,8 +13,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 /**
- * CourseServlet - Real HttpServlet for Tomcat deployment
- * Handles all REST API endpoints for Course operations.
+ * CourseServlet - Handles all REST API endpoints for Course operations.
  * 
  * Supported endpoints:
  * GET    /courses        - List all courses
@@ -35,7 +34,6 @@ public class CourseServlet extends HttpServlet {
     }
 
     /**
-     * Handle GET requests
      * GET /courses - List all courses
      * GET /courses/{id} - Get course by ID
      */
@@ -101,7 +99,6 @@ public class CourseServlet extends HttpServlet {
     }
 
     /**
-     * Handle POST requests
      * POST /courses - Add new course
      */
     @Override
@@ -174,7 +171,6 @@ public class CourseServlet extends HttpServlet {
     }
 
     /**
-     * Handle PUT requests
      * PUT /courses/{id} - Update course
      */
     @Override
@@ -280,7 +276,6 @@ public class CourseServlet extends HttpServlet {
     }
 
     /**
-     * Handle DELETE requests
      * DELETE /courses/{id} - Delete course
      */
     @Override
@@ -340,8 +335,6 @@ public class CourseServlet extends HttpServlet {
             out.flush();
         }
     }
-
-    // ==================== MANUAL JSON PROCESSING ====================
 
     /**
      * Convert Course object to JSON string

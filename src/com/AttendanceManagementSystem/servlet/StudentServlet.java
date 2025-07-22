@@ -14,8 +14,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * StudentServlet - Real HttpServlet for Tomcat deployment
- * Handles all REST API endpoints for Student operations.
+ * StudentServlet - Handles all REST API endpoints for Student operations.
  * 
  * Supported endpoints:
  * GET    /students        - List all students
@@ -36,7 +35,6 @@ public class StudentServlet extends HttpServlet {
     }
 
     /**
-     * Handle GET requests
      * GET /students - List all students
      * GET /students/{id} - Get student by ID
      */
@@ -102,7 +100,6 @@ public class StudentServlet extends HttpServlet {
     }
 
     /**
-     * Handle POST requests
      * POST /students - Add new student
      */
     @Override
@@ -175,7 +172,6 @@ public class StudentServlet extends HttpServlet {
     }
 
     /**
-     * Handle PUT requests
      * PUT /students/{id} - Update student
      */
     @Override
@@ -281,7 +277,6 @@ public class StudentServlet extends HttpServlet {
     }
 
     /**
-     * Handle DELETE requests
      * DELETE /students/{id} - Delete student
      */
     @Override
@@ -341,8 +336,6 @@ public class StudentServlet extends HttpServlet {
             out.flush();
         }
     }
-
-    // ==================== MANUAL JSON PROCESSING ====================
 
     /**
      * Convert Student object to JSON string
