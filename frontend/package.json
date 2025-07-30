@@ -1,0 +1,27 @@
+{
+   "name": "attendance-frontend",
+   "version": "0.1.0",
+   "private": true,
+   "dependencies": {
+      "lucide-react": "^0.525.0",
+      "react": "^19.1.0",
+      "react-dom": "^19.1.0"
+   },
+   "devDependencies": {
+      "@types/node": "^24.1.0",
+      "@types/react": "^19.1.8",
+      "@types/react-dom": "^19.1.6",
+      "@vitejs/plugin-react": "^4.0.0",
+      "autoprefixer": "^10.4.16",
+      "postcss": "^8.4.31",
+      "tailwindcss": "^3.3.5",
+      "typescript": "^5.8.3",
+      "vite": "^4.4.0"
+   },
+   "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "build:loc": "vite build --outDir ../WebContent",
+      "preview": "vite preview"
+   }
+}

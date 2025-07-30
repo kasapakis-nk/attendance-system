@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- This is the main configuration file for the web application -->
+<!-- It tells the server how to handle incoming requests and which servlets to use -->
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
-
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
     <display-name>Student Attendance Management System</display-name>
 
     <!-- Student Servlet Configuration -->
     <servlet>
+        <!-- Internal name for this servlet -->
         <servlet-name>StudentServlet</servlet-name>
+        <!-- The actual Java class that handles student requests -->
         <servlet-class>com.AttendanceManagementSystem.servlet.StudentServlet</servlet-class>
+        <!-- Load this servlet when the server starts (1 = first priority) -->
         <load-on-startup>1</load-on-startup>
     </servlet>
-
+    <!-- Map URL patterns to the StudentServlet -->
     <servlet-mapping>
+        <!-- Reference to the servlet defined above -->
         <servlet-name>StudentServlet</servlet-name>
+        <!-- Any URL starting with /students/ will be handled by StudentServlet -->
         <url-pattern>/students/*</url-pattern>
     </servlet-mapping>
 
@@ -25,7 +29,6 @@
         <servlet-class>com.AttendanceManagementSystem.servlet.CourseServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>CourseServlet</servlet-name>
         <url-pattern>/courses/*</url-pattern>
@@ -37,15 +40,13 @@
         <servlet-class>com.AttendanceManagementSystem.servlet.AttendanceServlet</servlet-class>
         <load-on-startup>3</load-on-startup>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>AttendanceServlet</servlet-name>
         <url-pattern>/attendance/*</url-pattern>
     </servlet-mapping>
 
-    <!-- Welcome File List -->
+    <!-- This defines what file to show when someone visits the root URL of your app -->
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
-
 </web-app>
